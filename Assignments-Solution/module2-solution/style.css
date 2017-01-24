@@ -8,21 +8,27 @@
 .row{
     width: 100%;
 }
+ h1{
+     text-align: center;
+ }
 
 .section{
     background: #696969;
     padding: 10px;
+    padding-top: 35px;
     border: solid 1px;
+    position: relative;
 
 }
 
 .title{
-    width: 20%;
-    margin-left: 80%;
+    width: 12em;
     border: solid 1px;
     height: 30px;
-    padding: 0;
     text-align: center;
+    position: absolute;
+    top: -1px;
+    right: -1px;
 }
 .title p{
     margin-top: 5px;
@@ -31,6 +37,7 @@
 @media (min-width: 768px) and (max-width: 991px){
     .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
         float: left;
+        padding: 0.5em;
         margin-bottom: 5px;
     }
     .col-md-1 {
@@ -77,6 +84,7 @@
 
     .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
         float: left;
+        padding: 0.5em 1.5em 0.5em 2em;
     }
     .col-sm-1 {
         width: 8.33%;
