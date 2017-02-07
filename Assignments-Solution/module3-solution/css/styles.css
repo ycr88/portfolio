@@ -101,6 +101,7 @@ body {
     position: relative;
     border: 2px solid #3F0C1F;
     overflow: hidden;
+    background-position: center;
 }
 
 .home-tile:hover{
@@ -109,12 +110,10 @@ body {
 
 #menu-tile {
     background: url('../images/menu-tile.jpg') no-repeat;
-    background-position: center;
 }
 #specials-tile {
     background: url('../images/specials-tile.jpg') no-repeat;
-    background-position: center;
-}
+    }
 
 .home-tile span {
     position: absolute;
