@@ -260,6 +260,12 @@ body {
     }
 
 }
+/****COMING SOON PAGE*****/
+.coming-soon{
+    color: grey;
+    text-align: center;
+}
+/****END of COMING SOON PAGE******/
 /********** Super extra small devices and Small device Menu and Special :-) (e.g., iPhone 4) **********/
 @media (min-width: 388px) and (max-width: 767px) {
 
