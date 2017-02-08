@@ -1,10 +1,25 @@
+/***GLOBAL STYLES***/
 body {
-  font-size: 16px;
-  color: #fff;
-  background-color: #61122f;
-  font-family: 'Oxygen', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    background-color: #61122f;
+    font-family: 'Oxygen', sans-serif;
 }
-/*TODO header*/
+
+/*TODO tile title general style*/
+.tile-title {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #000;
+    color: #fff;
+    opacity: .8;
+}
+
+/***END of GLOBAL STYLES***/
 /** HEADER **/
 #header-nav {
     background-color: #f6b319;
@@ -12,7 +27,6 @@ body {
     border: 0;
 }
 
-/*  TODO logo image*/
 #logo-img {
     background: url('../images/restaurant-logo_large.png') no-repeat;
     width: 150px;
@@ -20,7 +34,6 @@ body {
     margin: 10px 15px 10px 0;
 }
 
-    /*  TODO RESTAURANT'S NAME*/
 .navbar-brand {
     padding-top: 25px;
 }
@@ -36,16 +49,18 @@ body {
     margin-bottom: 0;
     line-height: .75;
 }
+
 .navbar-brand a:hover, .navbar-brand a:focus {
     text-decoration: none;
 }
-    /*  TODO Kroser certification text*/
+
 .navbar-brand p { /* Kosher cert */
     color: #000;
     text-transform: uppercase;
     font-size: .7em;
     margin-top: 15px;
 }
+
 .navbar-brand p span { /* Star-K */
     vertical-align: middle;
 }
@@ -54,13 +69,16 @@ body {
 #nav-list {
     margin-top: 10px;
 }
+
 #nav-list a {
     color: #951C49;
     text-align: center;
 }
+
 #nav-list a:hover {
     background: #E7E7E7;
 }
+
 #nav-list a span {
     font-size: 1.8em;
 }
@@ -68,24 +86,27 @@ body {
 .navbar-header button.navbar-toggle, .navbar-header .icon-bar {
     border: 1px solid #61122f;
 }
+
 .navbar-header button.navbar-toggle {
     clear: both;
     margin-top: -30px;
 }
 
-
 #phone {
     margin-top: 5px;
 }
+
 #phone a { /* Phone number */
     text-align: right;
     padding-bottom: 0;
 }
+
 #phone div { /* We Deliver */
     color: #557c3e;
     text-align: right;
     padding-right: 15px;
 }
+
 /*End Header*/
 
 /* FOOTER */
@@ -96,26 +117,33 @@ body {
     background-color: #222;
     border-top: 0;
 }
+
 .panel-footer div.row {
     margin-bottom: 35px;
 }
+
 #hours, #address {
     line-height: 2;
 }
+
 #hours > span, #address > span {
     font-size: 1.3em;
 }
+
 #address p {
     color: #557c3e;
     font-size: .8em;
     line-height: 1.8;
 }
+
 #testimonials {
     font-style: italic;
 }
+
 #testimonials p:nth-child(2) {
     margin-top: 25px;
 }
+
 /*END of FOOTER*/
 
 /*Home Page*/
@@ -124,7 +152,7 @@ body {
     border: 2px solid #3F0C1F;
 }
 
-.home-tile{
+.home-tile {
     height: 250px;
     width: 100%;
     margin-bottom: 15px;
@@ -134,30 +162,48 @@ body {
     background-position: center;
 }
 
-.home-tile:hover{
+.home-tile:hover {
     box-shadow: 0 1px 5px 1px #cccccc;
 }
 
 #menu-tile {
     background: url('../images/menu-tile.jpg') no-repeat;
 }
+
 #specials-tile {
     background: url('../images/specials-tile.jpg') no-repeat;
-    }
+}
 
 .home-tile span {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    text-align: center;
     font-size: 1.6em;
-    text-transform: uppercase;
-    background-color: #000;
-    color: #fff;
-    opacity: .8;
 }
+
 /*END Home page*/
+
+/********Menu Category page********/
+
+.category-tile {
+    position: relative;
+    border: 2px solid #3F0C1F;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 15px;
+}
+
+.category-tile span {
+    font-size: 1.2em;
+}
+
+.category-tile:hover {
+    box-shadow: 0 1px 5px 1px #cccccc;
+}
+
+#menu-categories-title + div {
+    margin-bottom: 50px;
+}
+
+/*******END Menu Category page********/
 
 /****MediaQuery*****/
 /********** Large devices only **********/
@@ -177,6 +223,7 @@ body {
         height: 100px;
         margin: 5px 5px 5px 0;
     }
+
     /* End Header */
     .container .jumbotron {
         background: url('../images/jumbotron_992.jpg') no-repeat;
@@ -194,28 +241,31 @@ body {
 }
 
 /********** ExtraSmall devices only **********/
-@media (max-width: 767px){
+@media (max-width: 767px) {
     /* Header */
     .navbar-brand {
         padding-top: 10px;
         height: 80px;
     }
+
     .navbar-brand h1 { /* Restaurant name */
         padding-top: 10px;
         font-size: 5vw; /* 1vw = 1% of viewport width */
     }
+
     .navbar-brand p { /* Kosher cert */
         font-size: .6em;
         margin-top: 12px;
     }
+
     .navbar-brand p img { /* Star-K */
         height: 20px;
     }
 
-
     #collapsable-nav a { /* Collapsed nav menu text */
         font-size: 1.2em;
     }
+
     #collapsable-nav a span { /* Collapsed nav menu glyph */
         font-size: 1em;
         margin-right: 5px;
@@ -230,29 +280,31 @@ body {
         background-color: #f6b319;
         color: #951c49;
     }
+
     #xs-deliver {
         margin-top: 5px;
         font-size: .7em;
         letter-spacing: .1em;
         text-transform: uppercase;
     }
-    /*END of the HEADER*/
 
+    /*END of the HEADER*/
     /*FOOTER*/
-    .panel-footer section{
-        font-size: 0.8em ;
+    .panel-footer section {
+        font-size: 0.8em;
         margin-bottom: 30px;
         text-align: center;
     }
-    .panel-footer section:last-of-type{
+
+    .panel-footer section:last-of-type {
         margin-bottom: 0;
     }
 
-    .panel-footer hr{
+    .panel-footer hr {
         width: 50%;
     }
-    /*END of the FOOTER*/
 
+    /*END of the FOOTER*/
     /* Home Page */
     .container .jumbotron {
         margin-top: 30px;
@@ -260,12 +312,17 @@ body {
     }
 
 }
+
+/****END of Home page***/
+
 /****COMING SOON PAGE*****/
-.coming-soon{
+.coming-soon {
     color: grey;
     text-align: center;
 }
+
 /****END of COMING SOON PAGE******/
+
 /********** Super extra small devices and Small device Menu and Special :-) (e.g., iPhone 4) **********/
 @media (min-width: 388px) and (max-width: 767px) {
 
@@ -282,6 +339,15 @@ body {
     .navbar-brand h1 { /* Restaurant name */
         padding-top: 5px;
         font-size: 6vw;
+    }
+
+    .col-xxs-12 {
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        float: left;
+        width: 100%;
     }
 }
 
