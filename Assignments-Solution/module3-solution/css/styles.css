@@ -5,6 +5,7 @@ body {
     background-color: #61122f;
     font-family: 'Oxygen', sans-serif;
 }
+
 /** HEADER **/
 #header-nav {
     background-color: #f6b319;
@@ -32,6 +33,15 @@ body {
 .navbar-brand a:hover, .navbar-brand a:focus {
     text-decoration: none;
 }
+.navbar-brand a { /* link to custom view */
+    color: #000;
+    text-transform: uppercase;
+    font-size: .7em;
+    margin-top: 15px;
+}
+.navbar-brand a span { /* Star-K */
+    vertical-align: middle;
+}
 
 /*nav-bar rigth section*/
 #nav-list {
@@ -56,9 +66,11 @@ body {
 .navbar-header button.navbar-toggle, .navbar-header .icon-bar {
     border: 1px solid #61122f;
 }
-header h2{
+
+header h2 {
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
 }
 
 /*End Header*/
@@ -101,17 +113,19 @@ header h2{
 /*END of FOOTER*/
 
 /*Home Page*/
-#main-container{
-    padding: 0;
+#main-container {
+    padding: 0px 15px 0 15px;
 }
-.menu-item{
-    margin: 1em 0 15px auto ;
+
+.menu-item {
+    margin: 1em 0 15px auto;
     padding-right: 1em;
     padding-left: 1em;
     border: 2px solid #fff;
     background: #557c3e;
-    }
-.menu-item .menu-item-title{
+}
+
+.menu-item .menu-item-title {
     font-size: 120%;
     text-transform: capitalize;
     margin-top: 5px;
@@ -119,15 +133,18 @@ header h2{
 
 /*END Home page*/
 /**Link to the top**/
-.to-top-buttom{
+.to-top-buttom {
     position: absolute;
     right: 0;
     bottom: 0;
 }
-.to-top-buttom a{
+
+.to-top-buttom a {
     color: #951C49;
+    position: relative;
 }
-.to-top-buttom span{
+
+.to-top-buttom {
     padding: 2px;
     width: 3.5em;
     height: 1.3em;
@@ -137,34 +154,40 @@ header h2{
     margin-bottom: 2px;
     text-align: center;
     font-size: 0.9em;
-    }
-.to-top-buttom span:hover{
+}
+
+.to-top-buttom a span{
+    position: absolute;
+    top:-1.5px;
+    left: -1.39em;
+}
+
+.to-top-buttom span:hover {
     border: solid #fff 1px;
 
 }
+/****Optional page****/
 
-
-
-
+/******END of Optional Page*********/
 /****MediaQuery*****/
 /********** Large devices only **********/
 @media (min-width: 1200px) {
-
+   #main-container{
+     width: 100%;
+   }
+    .menu-item{
+        margin: 0 1.2em 30px 1.2em;
+    }
 }
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
-    #main-container{
-        padding: 5px;
-    }
 
 }
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
-    #main-container{
-        padding: 5px;
-    }
+
 }
 
 /********** ExtraSmall devices only **********/
@@ -180,14 +203,16 @@ header h2{
         font-size: 4vw; /* 1vw = 1% of viewport width */
     }
 
-    .navbar-toggle{
-        margin-top:0.5em;
+    .navbar-toggle {
+        margin-top: 0.5em;
         padding-top: 8px;
         height: 50px;
     }
-    .navbar-toggle .icon-bar+.icon-bar {
+
+    .navbar-toggle .icon-bar + .icon-bar {
         margin-top: 7px;
     }
+
     #collapsable-nav a { /* Collapsed nav menu text */
         font-size: 1.2em;
     }
@@ -198,17 +223,19 @@ header h2{
     }
 
     /*END of the HEADER*/
-    #main-container{
+    #main-container {
         padding: 1em;
     }
 
-    #main-container hr,.panel-footer hr {
+    #main-container hr, .panel-footer hr {
         width: 50%;
     }
-    .menu-item{
+
+    .menu-item {
         width: 80%;
-        margin:0 10% 1em 10%;
+        margin: 0 10% 1em 10%;
     }
+
     /*FOOTER*/
     .panel-footer section {
         font-size: 0.8em;
@@ -219,21 +246,14 @@ header h2{
     .panel-footer section:last-of-type {
         margin-bottom: 0;
     }
+
     /*END of the FOOTER*/
     /* Home Page */
-
 
 }
 
 /****END of Home page***/
 
-
-
-/********** Super extra small devices and Small device Menu and Special :-) (e.g., iPhone 4) **********/
-@media (min-width: 388px) and (max-width: 767px) {
-
-
-}
 
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
@@ -243,7 +263,8 @@ header h2{
         padding-top: 5px;
         font-size: 6vw;
     }
-    #main-container{
+
+    #main-container {
         padding: 0 1em 0 1em;
     }
 
