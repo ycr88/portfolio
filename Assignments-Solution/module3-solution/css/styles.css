@@ -46,13 +46,14 @@ body {
 /*nav-bar rigth section*/
 #nav-list {
     margin-top: 10px;
-    background: #8fac69
+    background: rgb(166, 124, 25);
 }
 
 #nav-list a {
     color: #951C49;
     text-align: center;
     text-transform: capitalize;
+    font-weight: bold;
 }
 
 #nav-list a:hover {
@@ -122,13 +123,22 @@ header h2 {
     padding-right: 1em;
     padding-left: 1em;
     border: 2px solid #fff;
-    background: #557c3e;
+    background:  #f6b319;
 }
 
 .menu-item .menu-item-title {
-    font-size: 120%;
+    color: #557c3e;
+    font-size: 140%;
+    font-weight: bolder;
     text-transform: capitalize;
-    margin-top: 5px;
+    margin-top: 10px;
+    text-shadow: 1px 1px 1px #951C49;
+    line-height: 0.25;
+    margin-bottom: 1em;
+}
+.menu-item .section-description{
+    color: #951C49;
+
 }
 
 /*END Home page*/
@@ -174,8 +184,15 @@ header h2 {
 /****MediaQuery*****/
 /********** Large devices only **********/
 @media (min-width: 1200px) {
-   #main-container{
+    header{
+        width: 100%;
+    }
+    .navbar-brand h1{
+        font-size:1.8em;
+    }
+   #main-container.container{
      width: 100%;
+       padding: 1em 60px 30px 25px;
    }
     .menu-item{
         margin: 0 1.2em 30px 1.2em;
@@ -190,6 +207,10 @@ header h2 {
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
+    #main-container.container{
+        padding: 1em 1.5em 30px 1.5em;
+    }
+
 
 }
 
