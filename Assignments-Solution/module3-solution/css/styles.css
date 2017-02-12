@@ -207,9 +207,6 @@ header h2 {
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
-    #main-container.container{
-        padding: 1em 1.5em 30px 1.5em;
-    }
 
 
 }
