@@ -5,14 +5,11 @@
 document.addEventListener("DOMContentLoaded",
 function (event) {
     var myCoord={};
-    a="z";
-    console.log(a*1+2);
     function sumCoord(x,y) {
         prevX= myCoord.sumx || 0;
         prevY= myCoord.sumy || 0;
         myCoord.sumx=isNaN(prevX + x) ? 0 : prevX + x;
         myCoord.sumy=isNaN(prevY + x) ? 0 : prevY + y;
-      //window.myCoord=myCoord;
         return myCoord;
 
     }
