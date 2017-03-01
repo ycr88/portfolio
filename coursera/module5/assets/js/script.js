@@ -6,4 +6,7 @@ $(function () {
             $("#collapsable-nav").collapse("hide");
         }
     });
+    $("#navbarToggle").click(function (event) {
+        $(event.target).focus();
+    });
 });
