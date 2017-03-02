@@ -11,6 +11,10 @@
         "https://davids-restaurant.herokuapp.com/categories.json";
     var categoriesTitleHtml = "snippets/categories-title-snippet.html";
     var categoryHtml = "snippets/category-snippet.html";
+    var menuItemsUrl =
+        "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
+    var menuItemsTitleHtml = "snippets/menu-items-title.html";
+    var menuItemHtml = "snippets/menu-item.html";
 
 // Convenience function for inserting innerHTML for 'select'
     var insertHtml = function (selector, html) {
@@ -32,7 +36,7 @@
         string = string
             .replace(new RegExp(propToReplace, "g"), propValue);
         return string;
-    }
+    };
 
 // On page load (before images or CSS)
     document.addEventListener("DOMContentLoaded", function (event) {
@@ -55,6 +59,12 @@
             allCategoriesUrl,
             buildAndShowCategoriesHTML);
     };
+    // Load the item of a selected menu
+    dc.loadMenuItems = function (categorie) {
+        showLoading("#main-content");
+        $ajaxUtils.sendGetRequest(menuItemsUrl+categorie,
+            buildAndShowMenuItemsHTML);
+    }
 
 
 // Builds HTML for the categories page based on the data
@@ -104,6 +114,36 @@
             finalHtml += html;
         }
 
+        finalHtml += "</section>";
+        return finalHtml;
+    }
+
+    //Function to fill the menu items
+    function buildAndShowMenuItemsHTML(category){
+        //category is a object with the data od the category and the list of items
+        //load the the title snippet
+        $ajaxUtils.sendGetRequest(menuItemsTitleHtml, function (menuItemsTitleHtml) {
+            //load single menu snippet to build whole menu page
+            $ajaxUtils.sendGetRequest(menuItemHtml, function (menuItemHtml) {
+                var menuItemsView = buildMenuItemsView(category,
+                                                        menuItemsTitleHtml,
+                                                        menuItemHtml);
+                insertHtml("#main-content",menuItemsView);
+
+            },false);
+
+        }, false);
+
+    };
+
+    function buildMenuItemsView(categoryItem,
+                                menuItemsTitleHtml,
+                                menuItemHtml) {
+        menuItemsTitleHtml=insertProperty(menuItemsTitleHtml,"name",categoryItem.category.name);
+        menuItemsTitleHtml=insertProperty(menuItemsTitleHtml,"special_instructions",categoryItem.category.special_instructions);
+        var finalHtml = menuItemsTitleHtml;
+        finalHtml += "<section class='row'>";
+        //TODO insert clearfix every second column
         finalHtml += "</section>";
         return finalHtml;
     }
