@@ -136,6 +136,33 @@
 
     };
 
+    function fillHtml(array,html) {
+        var finalHtml='';
+        for(var i=0;i < array.length;i++)
+        {
+            var fill = html;
+            for(prop in array[i]){
+                var value = array[i][prop];
+
+                if(!value){
+                    fill=insertProperty(fill, prop, array[i][prop]," ");
+                }
+                else{
+                    if(!isNaN(value)){
+                        value = "$"+ value.toFixed(2);
+                        console.log(value,insertProperty(fill, prop, array[i][prop],value));
+                    }
+                    fill=insertProperty(fill, prop, array[i][prop],value);
+                }
+            }
+
+            finalHtml+=fill;
+
+
+        }
+        return finalHtml
+            }
+
     function buildMenuItemsView(categoryItem,
                                 menuItemsTitleHtml,
                                 menuItemHtml) {
@@ -143,6 +170,7 @@
         menuItemsTitleHtml=insertProperty(menuItemsTitleHtml,"special_instructions",categoryItem.category.special_instructions);
         var finalHtml = menuItemsTitleHtml;
         finalHtml += "<section class='row'>";
+        finalHtml+=fillHtml(categoryItem.menu_items,menuItemHtml);
         //TODO insert clearfix every second column
         finalHtml += "</section>";
         return finalHtml;
