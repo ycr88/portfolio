@@ -28,7 +28,7 @@
         html += "<img src='../assets/images/ajax-loader.gif'></div>";
         insertHtml(selector, html);
     };
-    
+
     // Return substitute of '{{propName}}'
 // with propValue in given 'string'
     var insertProperty = function (string, propName, propValue) {
@@ -125,9 +125,9 @@
         $ajaxUtils.sendGetRequest(menuItemsTitleHtml, function (menuItemsTitleHtml) {
             //load single menu snippet to build whole menu page
             $ajaxUtils.sendGetRequest(menuItemHtml, function (menuItemHtml) {
-                var menuItemsView = buildMenuItemsView(category,
-                                                        menuItemsTitleHtml,
-                                                        menuItemHtml);
+                var menuItemsView = buildMenuItemsViewHtml(category,
+                    menuItemsTitleHtml,
+                    menuItemHtml);
                 insertHtml("#main-content",menuItemsView);
 
             },false);
@@ -135,47 +135,106 @@
         }, false);
 
     };
-
-    function fillHtml(array,html) {
-        var finalHtml='';
-        for(var i=0;i < array.length;i++)
-        {
-            var fill = html;
-            for(prop in array[i]){
-                var value = array[i][prop];
-
-                if(!value){
-                    fill=insertProperty(fill, prop, array[i][prop]," ");
-                }
-                else{
-                    if(!isNaN(value)){
-                        value = "$"+ value.toFixed(2);
-                        console.log(value,insertProperty(fill, prop, array[i][prop],value));
-                    }
-                    fill=insertProperty(fill, prop, array[i][prop],value);
-                }
-            }
-
-            finalHtml+=fill;
+//todo make more clean code
 
 
-        }
-        return finalHtml
-            }
+// Using category and menu items data and snippets html
+// build menu items view HTML to be inserted into page
+    function buildMenuItemsViewHtml(categoryMenuItems,
+                                    menuItemsTitleHtml,
+                                    menuItemHtml) {
 
-    function buildMenuItemsView(categoryItem,
-                                menuItemsTitleHtml,
-                                menuItemHtml) {
-        menuItemsTitleHtml=insertProperty(menuItemsTitleHtml,"name",categoryItem.category.name);
-        menuItemsTitleHtml=insertProperty(menuItemsTitleHtml,"special_instructions",categoryItem.category.special_instructions);
+        menuItemsTitleHtml =
+            insertProperty(menuItemsTitleHtml,
+                "name",
+                categoryMenuItems.category.name);
+        menuItemsTitleHtml =
+            insertProperty(menuItemsTitleHtml,
+                "special_instructions",
+                categoryMenuItems.category.special_instructions);
+
         var finalHtml = menuItemsTitleHtml;
         finalHtml += "<section class='row'>";
-        finalHtml+=fillHtml(categoryItem.menu_items,menuItemHtml);
-        //TODO insert clearfix every second column
+
+        // Loop over menu items
+        var menuItems = categoryMenuItems.menu_items;
+        var catShortName = categoryMenuItems.category.short_name;
+        for (var i = 0; i < menuItems.length; i++) {
+            // Insert menu item values
+            var html = menuItemHtml;
+            html =
+                insertProperty(html, "short_name", menuItems[i].short_name);
+            html =
+                insertProperty(html,
+                    "catShortName",
+                    catShortName);
+            html =
+                insertItemPrice(html,
+                    "price_small",
+                    menuItems[i].price_small);
+            html =
+                insertItemPortionName(html,
+                    "small_portion_name",
+                    menuItems[i].small_portion_name);
+            html =
+                insertItemPrice(html,
+                    "price_large",
+                    menuItems[i].price_large);
+            html =
+                insertItemPortionName(html,
+                    "large_portion_name",
+                    menuItems[i].large_portion_name);
+            html =
+                insertProperty(html,
+                    "name",
+                    menuItems[i].name);
+            html =
+                insertProperty(html,
+                    "description",
+                    menuItems[i].description);
+
+            // Add clearfix after every second menu item
+            if (i % 2 != 0) {
+                html +=
+                    "<div class='clearfix visible-lg-block visible-md-block'></div>";
+            }
+
+            finalHtml += html;
+        }
+
         finalHtml += "</section>";
         return finalHtml;
     }
 
+
+// Appends price with '$' if price exists
+    function insertItemPrice(html,
+                             pricePropName,
+                             priceValue) {
+        // If not specified, replace with empty string
+        if (!priceValue) {
+            return insertProperty(html, pricePropName, "");
+        }
+
+        priceValue = "$" + priceValue.toFixed(2);
+        html = insertProperty(html, pricePropName, priceValue);
+        return html;
+    }
+
+
+// Appends portion name in parens if it exists
+    function insertItemPortionName(html,
+                                   portionPropName,
+                                   portionValue) {
+        // If not specified, return original string
+        if (!portionValue) {
+            return insertProperty(html, portionPropName, "");
+        }
+
+        portionValue = "(" + portionValue + ")";
+        html = insertProperty(html, portionPropName, portionValue);
+        return html;
+    }
 
     global.$dc = dc;
 
