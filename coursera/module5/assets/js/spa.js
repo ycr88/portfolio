@@ -44,13 +44,31 @@
 // On first load, show home view
         showLoading("#main-content");
         $ajaxUtils.sendGetRequest(
+            allCategoriesUrl,
+            buildAndShowHomeHTML, //
+            true); // Explicitely setting the flag to get JSON from server processed into an object literal
+
+    });
+
+    function buildAndShowHomeHTML (categories) {
+        // Load home snippet page
+        $ajaxUtils.sendGetRequest(
             homeHtml,
-            function (responseText) {
-                document.querySelector("#main-content")
-                    .innerHTML = responseText;
+            function (homeHtml) {
+                var chosenCategory =chooseRandomCategory(categories);
+                homeHtml = insertProperty(homeHtml,"randomCategoryShortName","'"+chosenCategory.short_name+"'");
+                var homeHtmlToInsertIntoMainPage = "<section class='row'>" + homeHtml + "</section>";
+                insertHtml("#main-content",homeHtmlToInsertIntoMainPage);
             },
             false);
-    });
+    }
+    // Given array of category objects, returns a random category object.
+    function chooseRandomCategory (categories) {
+        // Choose a random index into the array (from 0 inclusively until array length (exclusively))
+        var randomArrayIndex = Math.floor(Math.random() * categories.length);
+        // return category object with that randomArrayIndex
+        return categories[randomArrayIndex];
+    }
 
     // Load the menu categories view
     dc.loadMenuCategories = function () {
@@ -239,3 +257,5 @@
     global.$dc = dc;
 
 })(window);
+//todo fill the notfounded images with a placeholder
+//todo put in special the name of the random selected menu and the picture
