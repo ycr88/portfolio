@@ -12,19 +12,21 @@ gen
 .idea/
 docs/
 /docs/
-/Assignments-Solution/module3-solution/js
-*.png
+#/Assignments-Solution/restaurant-solution/js
+
 
 node_modules
 .DS_Store
 >>>>>>> 1f6a185615321a5cee94a36e1f4e4a251cd4e226
 /Assignments-Solution/module3-solution/fonts/
 /Assignments-Solution/module3-solution/css/bootstrap-theme.min.css.map
-/Assignments-Solution/module3-solution/css/bootstrap.css
+#/Assignments-Solution/restaurant-solution/css/bootstrap.css
 /Assignments-Solution/module3-solution/css/bootstrap.css.map
 /Assignments-Solution/module3-solution/css/bootstrap-theme.min.css
-/Assignments-Solution/module3-solution/css/bootstrap.min.css
+#/Assignments-Solution/restaurant-solution/css/bootstrap.min.css
 /Assignments-Solution/module3-solution/css/bootstrap.min.css.map
 /Assignments-Solution/module3-solution/css/bootstrap-theme.css.map
 /Assignments-Solution/module3-solution/css/bootstrap-theme.css
-/assignments/
+
+assignments/
+#coursera/module5/assets/images/menu
