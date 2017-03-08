@@ -1,13 +1,15 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway+Dots);
-@import url(http://fonts.googleapis.com/css?family=Advent+Pro:400,200,700);
-@import url(http://weloveiconfonts.com/api/?family=entypo);
+/*@import url(http://weloveiconfonts.com/api/?family=entypo);*/
 /* entypo */
+@font-face {
+    font-family: entypo;
+    src: url(../fonts/entypo.woff);
+}
 [class*="entypo-"]:before {
     font-family: 'entypo', sans-serif;
 }
 
-
 section #services {
+    float: right;
     text-align: center;
     transform: translatez(0);
 }
@@ -17,6 +19,7 @@ section #services li {
     height: 70px;
     display: inline-block;
     margin: 15px;
+    float:left;
     list-style: none;
 }
 section #services li div {
