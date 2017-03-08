@@ -2,7 +2,7 @@
 /* entypo */
 @font-face {
     font-family: entypo;
-    src: url(../fonts/entypo.woff);
+    src: url(fonts/entypo.woff);
 }
 [class*="entypo-"]:before {
     font-family: 'entypo', sans-serif;
