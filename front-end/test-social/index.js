@@ -1,5 +1,5 @@
 var fbButton = document.getElementById('fb-share-button');
-var url = fbButton.dataset.url;
+var url =window.location.href;
 
 fbButton.addEventListener('click', function() {
   console.log("que bola"+ fbButton.name);
