@@ -8,7 +8,7 @@ fbButton.addEventListener('click', function() {
         'width=600,height=400'
     );
   vkButton.addEventListener('load', function() {
-    var link= $this.getElementBytag('a');
+    var link=this.getElementBytag('a');
     console.log(link);
   });   
     return false;
