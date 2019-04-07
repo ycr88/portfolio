@@ -10,7 +10,7 @@ fbButton.addEventListener('click', function() {
   vkButton.addEventListener('load', function() {
     var link= $this.getElementBytag('a');
     console.log(link);
-    }   
+    )}   
     return false;
 });
 
