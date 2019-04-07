@@ -8,8 +8,7 @@ fbButton.addEventListener('click', function() {
         'width=600,height=400'
     );
   vkButton.addEventListener('click', function() {
-    var link=this.getElementBytag('a');
-   window.open('http://vk.com/share.php?url=' + url);             
+     window.open('http://vk.com/share.php?url=' + url,"",'width=600,height=400');             
   });   
     return false;
 });
