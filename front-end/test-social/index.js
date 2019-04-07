@@ -7,6 +7,7 @@ fbButton.addEventListener('click', function() {
         'facebook-share-dialog',
         'width=600,height=400'
     );
+});
   vkButton.addEventListener('click', function() {
      window.open('http://vk.com/share.php?url=' + url,"",'width=600,height=400');             
   });   
